@@ -2,7 +2,7 @@ doctype html
 html(lang='ko')
   head
     block title
-      title BBDO
+      title Mireene
     meta(charset='UTF-8')
     link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap-theme.css')
     link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
@@ -14,13 +14,14 @@ html(lang='ko')
     block top-nav
       include ./includes/topnav
     block hero-unit
-    if flashMessages
+     if flashMessages
       each texts, type in flashMessages
         .container
           .alert(class='alert-#{type}')
             each msg in texts
-              p= msg           
+              p = msg           
     block content
 
-    block footer
-      include ./includes/footer
+
+    //block footer
+      //include ./includes/footer

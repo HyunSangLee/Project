@@ -1,3 +1,9 @@
+//내가 추가한것
+.form-explain{
+  width: 300px; /* 정렬하려는 요소의 넓이를 반드시 지정 */
+  margin: 0 auto;
+}
+
 .form-signin {
   width: 320px;
   height: 300px;
@@ -6,7 +12,7 @@
   left: 50%;
   position: absolute;
   margin: 0 0 0 -160px;
-  
+
   .checkbox {
     margin-bottom: 10px;
     font-weight: normal;

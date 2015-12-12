@@ -2,6 +2,7 @@ var express = require('express'),
     User = require('../models/User');
 var router = express.Router();
 
+//이 부분에서 로그인하라고 나오고 
 function needAuth(req, res, next) {
   if (req.isAuthenticated()) {
     next();
