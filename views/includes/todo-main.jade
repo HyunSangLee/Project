@@ -1,35 +1,20 @@
-form.form-inline(action='/todos', method='POST', class='todos')
-  .form
-    .main
-      input(type='text', id='task', name='task', placeholder='설문제목')
-    .sub
-      .form-group
-        input.form-control(type='text', id='category', name='category', placeholder='분류')
-      .form-group
-        select.form-control(name='priority')
-          option(value='1') 중요
-          option(value='2', selected) 보통
-          option(value='3') 사소
-      .form-group
-        input.form-control(type='date', id='deadline', name='deadline')
-  .actions
-      button.btn.btn-primary.btn-lg.btn-block(type='submit') 저장
+extends ../layout
 
-ul.tasks
-  each task in tasks
-    li.task(data-id='#{task._id}')
-      span.check
-      span.content= task.content
-      if task.category
-        span.label.label-default.category= task.category
-      span.priority(class='p#{task.priority}')
-        case task.priority
-          when 1
-            | 사소
-          when 2
-            | 보통
-          when 3
-            | 중요
-      if task.deadline
-        span.deadline= moment(task.deadline).format('YYYY-MM-DD')
-      
+block content
+    .container
+      h2.page.header 설문지 작성
+    
+    form(action = (todo.id) ? "todos/#{todo.id}?_method=PUT" : "/todos", method='POST')
+      .form-group
+        label(for='title') 제목
+          input.form.control(type='text', id='title', name='title', placeholder='Title', value=todo.title)
+        label(for='explain') 간단한 설명
+          input.form.control(type='content', id='explain', name='explain', placeholder='Explain', value=todo.explain)
+      .form-group
+        label(for='question') 질문
+          input.form.control(type='text', id='question', name='question', placeholder='Question', value=todo.question)
+    
+          div.form-actions
+            a.btn.btn-default(href='javascript:window.history.back();') 뒤로 
+            | 
+            button.btn.btn-primary(type='submit') 완료

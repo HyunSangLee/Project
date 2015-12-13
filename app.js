@@ -7,12 +7,14 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var methodOverride = require('method-override');
 var flash = require('connect-flash');
-var mongoose   = require('mongoose');
+var mongoose  = require('mongoose');
 var passport = require('passport');
 var configAuth = require('./config/auth');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+//내가추가
+var todos = require('./routes/todos');
 var routeAuth = require('./routes/auth');
 
 var app = express();
