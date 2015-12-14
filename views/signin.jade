@@ -2,9 +2,7 @@ extends layout
 
 
 block content
-  .container
-    form.form-explain 
-      p 설문조사를 하기위해선 로그인이 필요합니다.
+  .container.text-center
     form.form-signin(action='/signin', method='POST')
       label(for='email', class='sr-only') Email address
       input(

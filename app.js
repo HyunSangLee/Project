@@ -13,7 +13,6 @@ var configAuth = require('./config/auth');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-//내가추가
 var todos = require('./routes/todos');
 var routeAuth = require('./routes/auth');
 
@@ -63,6 +62,7 @@ configAuth(passport);
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/todos', todos);
 routeAuth(app, passport);
 
 // catch 404 and forward to error handler
