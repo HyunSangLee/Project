@@ -1,0 +1,26 @@
+extends ../layout
+  
+block content
+  .container
+    h1= todo.title
+    h5= todo.createdAt
+    h5 설문URL: 
+      a(href='/todos/#{todo.id}/set') localhost:3000/todos/#{todo.id}/set
+    h3
+    .well= todo.content
+    br
+    a.btn.btn-danger(href='/todos/#{todo.id}/answer') 결과확인
+    br
+    
+  .container
+    .row-sm-6
+      include ../todos/addnew
+    .row-sm-6
+      include ../todos/divide
+    .row-sm-6
+      include ../todos/list
+    
+  
+  .container
+    div.form-actions      
+      a.btn.btn-default(href='/todos/') 목록

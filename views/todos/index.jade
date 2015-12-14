@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  .container
+    h1.page-header List
+    table.table.table-bordered
+      thead
+        tr
+          th 제목
+          th 작성일
+          th 응답자 수
+          th
+      tbody
+        each todo in todos
+          tr
+            td 
+              a(href= '/todos/#{todo.id}')= todo.title
+            td= moment(todo.createdAt).format('YYYY-MM-DD HH:mm:ss')
+            td= todo.numAnswer
+            td
+              a.btn.btn-xs.btn-default(href='/todos/#{todo._id}/edit') 수정
+              | 
+              a.btn.btn-xs.btn-default(href='/todos/#{todo._id}?_method=DELETE') 삭제
+    //여기
+    a.btn.btn-info(href='/todos/new')새로작성하기

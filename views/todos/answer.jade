@@ -1,0 +1,62 @@
+extends ../layout
+
+block content
+  .container
+    h1 응답자 확인
+    br
+    h5= todo.title
+    h5= todo.createdAt 
+    h3
+    .well= todo.content
+
+      br
+      br
+      h3 질문 목록 (#{todo.numQuestion})
+      
+      br
+      ul#set.list-unstyled
+        each question in questions
+          li
+            b Qustion. #{question.seq} #{question.type}
+            p= question.content
+            if question.type === '주관식'
+              ul.list-unstyled
+                li#br <응답 내용>
+                each answer in answers
+                  if answer.question_id == question.id
+                    li #{answer.answer}
+              
+            if question.type === '의견'
+              ul.list-unstyled
+                li#br <응답 내용>
+                each answer in answers
+                  if answer.question_id == question.id
+                    li #{answer.answer}
+            
+            if question.type === '객관식'
+              ul.list-unstyled
+                each answer in answers        
+                  if answer.question_id == question.id
+                    li
+                      span #{question.selection[0].selection1}
+                      span#br  /응답자수: 
+                      span#br #{answer.selection[0].selection1}
+                      br
+                      span #{question.selection[0].selection2}
+                      span#br  /응답자수: 
+                      span#br #{answer.selection[0].selection2}
+                      br
+                      span #{question.selection[0].selection3}
+                      span#br  /응답자수: 
+                      span#br #{answer.selection[0].selection3}
+                      br
+                      span #{question.selection[0].selection4}
+                      span#br  /응답자수: 
+                      span#br #{answer.selection[0].selection4}
+                      br
+                      span #{question.selection[0].selection5}
+                      span#br  /응답자수: 
+                      span#br #{answer.selection[0].selection5}
+                      
+   div.form-actions
+    a.btn.btn-default(href='javascript:window.history.back();') 뒤로 

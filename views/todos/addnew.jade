@@ -1,0 +1,40 @@
+br
+h3 객관식 질문 추가
+form.form(action='/todos/' + todo._id + '/questions', method='POST')
+  hr
+  h5 질문
+  .form-group
+    label.sr-only(for='content') content
+    input.form-control(name='content', size=40, placeholder='Question details')
+    input.form-control(name='type', type='hidden', value='객관식')
+  h5 선택지
+  .form-group
+    label.sr-only(for='selection') selection
+    input.form-control(name='selection1', size=50, placeholder='selection1 details')
+    input.form-control(name='selection2', size=50, placeholder='selection2 details')
+    input.form-control(name='selection3', size=50, placeholder='selection3 details')
+    input.form-control(name='selection4', size=50, placeholder='selection4 details')
+    input.form-control(name='selection5', size=50, placeholder='selection5 details')  
+    button.btn.btn-success 저장
+  
+h3 주관식 질문 추가
+  hr
+  h5 질문
+  form.form(action='/todos/' + todo._id + '/questions', method='POST')
+    .form-group
+      label.sr-only(for='content') content
+      input.form-control(name='content', size=40, placeholder='Question details')
+      input.form-control(name='type', type='hidden', value='주관식')
+      p
+      button.btn.btn-success 저장
+    
+br
+h3 의견 추가
+hr
+h5 의견
+form.form(action='/todos/' + todo._id + '/questions', method='POST')
+  .form-group
+    label.sr-only(for='content') content
+    input.form-control(name='content', size=40, placeholder='Question details')
+    input.form-control(name='type', type='hidden', value='의견')
+    button.btn.btn-success 저장
